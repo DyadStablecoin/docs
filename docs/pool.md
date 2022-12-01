@@ -1,47 +1,61 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Pool
 
-DYAD is a hard pegged, immutable and governance-free stablecoin backed by ETH. Decentralized monetary policy via long vol dNFTs.
+The [Pool](https://github.com/DyadStablecoin/contracts/blob/main/src/Pool.sol)
+holds all the deposited ETH.
 
-## Getting Started
+It has functions to redeem DYAD for ETH, claim liquidated dNFTs and to 
+synchronize the protocol. 
 
-Get started by **creating a new site**.
+### Sync
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Burn or mint DYAD depending on the delta between the ETH price from the last 
+time sync was called to the current price and update all dNFTs accordingly.
 
-### What you'll need
+IMPORTANT: One dNFT of the EOA calling this function will get an XP boost.
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```javascript
+function sync() public returns (uint)
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Returns the amount burned/minted
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+NOTES:
+- Can be called by anyone
+- XP accrual happens only if DYAD is burned
 
-## Start your site
+### Redeem
 
-Run the development server:
+Redeem the amount of DYAD for ETH.
 
-```bash
-cd my-website
-npm run start
+```javascript
+function redeem(uint amount) external
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+NOTES:
+- Can be called by anyone
+- EOA must approve the Pool to burn the DYAD
+- The exchange rate used is the one last determined in the `sync` function
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+### Claim
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Claim a dNFT.
+
+A dNFT is claimable if its deposit attribute is negative.
+The claimed dNFT is burned and a new one is minted. The newly minted dNFT xp and
+withdrawn attributes will be the same as the burned dNFT. They are copied over.
+
+IMPORTANT: Enough ETH must be sent to cover the negative deposit of the old 
+dNFT. If it is more than to cover it, it will get attributed to the new dNFT.
+
+```javascript
+function claim(uint id, address receiver) external payable returns (uint)
+```
+
+Returns the id of the newly minted dNFT.
+
+NOTES:
+- Can be called by anyone
