@@ -96,7 +96,7 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "discord.gg/DYAD",
+                href: "https://discord.gg/DYAD",
               },
               {
                 label: "Twitter",
