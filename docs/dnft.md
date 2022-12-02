@@ -69,3 +69,15 @@ NOTES:
 - Can only be called by the dNFT owner
 - Will deposit the minted DYAD directly into the pool
 - Will increase the dNFT deposit attribute by the amount
+
+### Redeem
+
+Redeem the amount of DYAD for the equivalent amount of USD denominated in ETH.
+
+```javascript
+function redeem(uint id, uint amount) external {
+```
+
+NOTES:
+- Can only be called by the dNFT owner
+- EOA must approve the dNFT contract to transfer the amount of DYAD to the pool

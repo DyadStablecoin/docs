@@ -27,19 +27,6 @@ NOTES:
 - Can be called by anyone
 - XP accrual happens only if DYAD is burned
 
-### Redeem
-
-Redeem the amount of DYAD for ETH.
-
-```javascript
-function redeem(uint amount) external
-```
-
-NOTES:
-- Can be called by anyone
-- EOA must approve the Pool to burn the DYAD
-- The exchange rate used is the one last determined in the `sync` function
-
 ### Claim
 
 Claim a dNFT.
