@@ -15,6 +15,16 @@ to obtain one.
 - Claiming a liquidated dNFT
 - Trough the secondary market
 
+### Safety Mode
+
+Safety Mode is enables once the Collaterization Ration (CR) exceeds 150%. It is calculated like this:
+
+```javascript
+cr = (totalSupplyOfDyad - dyadBalanceOfPool) / totalSupplyOfDyad
+```
+
+If active, no dNFT holder can withdraw any dyad from the pool anymore.
+
 ### Mint dNFT
 
 To mint a new NFT at least $5k worth of ETH have to be included.
