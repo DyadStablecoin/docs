@@ -119,7 +119,7 @@ $$
 \omega_p = 7 \times 0.5 + 2.2 + 2.4 + 2.0 = 10.2.
 $$
 
-For a delta ($+10%$) that represents a wanted mint value of 10,000 DYAD, minting allocations ($\zeta$) are given as follows:
+For a delta ($+10\%$) that represents a wanted mint value of 10,000 DYAD, minting allocations ($\zeta$) are given as follows:
 
 | Property | 1    |   2   | 3    | 4    | 5    | 6    |   7   | 8     | 9    | 10   |
 | -------- | ---- | :---: | ---- | ---- | ---- | ---- | :---: | ----- | ---- | ---- |
