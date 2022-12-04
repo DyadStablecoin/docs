@@ -128,7 +128,7 @@ and hence we calculate the contribution for dNFT(7), with an $XP$ multiplier of 
 First, we calculate the product of both multipliers
 
 $$
-z = $\Theta_7$ \times \dfrac{\nu_7}{\kappa_7} = 2.43 \times 1.00 = 2.43,
+z = \Theta_7 \times \dfrac{\nu_7}{\kappa_7} = 2.43 \times 1.00 = 2.43,
 $$
 
 and then we normalise the multiplier product
@@ -137,13 +137,13 @@ $$
 \varepsilon_7 = \dfrac{2.43}{10.2} = 0.24.
 $$
 
-Finally, we take the minted amount and multiply the normalised contribution to obtain the minting allocation for dNFT(7)
+Finally, we take the minted amount ($M$) and multiply the normalised contribution to obtain the minting allocation ($\zeta_7$) for dNFT(7)
 
 $$
-m = 0.24 * 10,000\,\text{DYAD} \approx 2400\,\text{DYAD}
+\zeta_7 = \varepsilon_7 \times M = 0.24 \times 10,000\,\text{DYAD} \approx 2400\,\text{DYAD}
 $$
 
-For a delta of $+10\%$ that represents a wanted mint value of 10,000 DYAD, minting allocations ($\zeta$) are as follows:
+The table below shows minting allocations for a delta of $+10\%$ that represents a wanted mint value of 10,000 DYAD:
 
 | Property | 1    |   2   | 3    | 4    | 5    | 6    |   7   | 8     | 9    | 10   |
 | -------- | ---- | :---: | ---- | ---- | ---- | ---- | :---: | ----- | ---- | ---- |
