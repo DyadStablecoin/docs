@@ -53,7 +53,7 @@ $$
 $$
 
 where $\Omega_j$ defines the $XP$ function for dNFT $j$, $\nu_j$ is the active DYAD deposit of dNFT $j$ to the damping vault, and $\kappa_j$ is the amount of minted DYAD for dNFT $j$.
-Note that $\nu_j = \kappa_j$ if no DYAD has been withdrawn.
+Note that $\nu_j = \kappa_j$ if no DYAD has been withdrawn and $\nu_j < \kappa_j$ if DYAD has been withdrawn.
 
 ## The $XP$ function
 
