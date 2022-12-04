@@ -124,7 +124,7 @@ For a delta ($+10\%$) that represents a wanted mint value of 10,000 DYAD, mintin
 | Property | 1    |   2   | 3    | 4    | 5    | 6    |   7   | 8     | 9    | 10   |
 | -------- | ---- | :---: | ---- | ---- | ---- | ---- | :---: | ----- | ---- | ---- |
 | $\zeta$  | 492  | 2,194 | 493  | 493  | 493  | 510  | 2,392 | 1,949 | 493  | 493  |
-| exposure | 0.49 |  2.2  | 0.49 | 0.49 | 0.49 | 0.51 | 2.39  | 1.95  | 0.49 | 0.49 |
+| exposure | 0.49 | 2.19  | 0.49 | 0.49 | 0.49 | 0.51 | 2.39  | 1.95  | 0.49 | 0.49 |
 
 Note that the average mint would be 1,000 DYAD.
 All low-$XP$ lying dNFTs have an exposure of $\approx 0.5$ while the high-$XP$ lying dNFTs have an exposure of $\approx 2.5$.
