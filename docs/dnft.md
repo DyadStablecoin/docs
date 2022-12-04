@@ -17,13 +17,12 @@ to obtain one.
 
 ### Safety Mode
 
-Safety Mode is enables once the Collaterization Ration (CR) exceeds 150%. It is calculated like this:
+Safety Mode is enables once the Collaterization Ration (CR) exceeds 150%. CR
+is calculated like this:
 
-```javascript
-cr = (totalSupplyOfDyad - dyadBalanceOfPool) / totalSupplyOfDyad
-```
-
-If active, no dNFT holder can withdraw any dyad from the pool anymore.
+$$
+\dfrac{\text{totalSupplyOfDyad} - \text{dyadBalanceOfPool}}{\text{dyadBalanceOfPool}}
+$$
 
 ### Mint dNFT
 
