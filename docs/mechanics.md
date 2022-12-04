@@ -134,21 +134,21 @@ $$
 and then we normalise the multiplier product
 
 $$
-\varepsilon_7 = \dfrac{2.43}{10.2} = 0.24.
+\varepsilon_7^p = \dfrac{z}{\omega_p} = \dfrac{2.43}{10.2} = 0.24.
 $$
 
-Finally, we take the minted amount ($M$) and multiply the normalised contribution to obtain the minting allocation ($\zeta_7$) for dNFT(7)
+Finally, we take the minted amount ($M$) and multiply the normalised contribution to obtain the minting allocation ($\zeta_7^p$) for dNFT(7) in sync $p$
 
 $$
-\zeta_7 = \varepsilon_7 \times M = 0.24 \times 10,000\,\text{DYAD} \approx 2400\,\text{DYAD}
+\zeta_7^p = \varepsilon_7^p \times M = 0.24 \times 10,000\,\text{DYAD} \approx 2400\,\text{DYAD}
 $$
 
 The table below shows minting allocations for a delta of $+10\%$ that represents a wanted mint value of 10,000 DYAD:
 
-| Property | 1    |   2   | 3    | 4    | 5    | 6    |   7   | 8     | 9    | 10   |
-| -------- | ---- | :---: | ---- | ---- | ---- | ---- | :---: | ----- | ---- | ---- |
-| $\zeta$  | 492  | 2,194 | 493  | 493  | 493  | 510  | 2,392 | 1,949 | 493  | 493  |
-| exposure | 0.49 | 2.19  | 0.49 | 0.49 | 0.49 | 0.51 | 2.39  | 1.95  | 0.49 | 0.49 |
+| Property  | 1    |   2   | 3    | 4    | 5    | 6    |   7   | 8     | 9    | 10   |
+| --------- | ---- | :---: | ---- | ---- | ---- | ---- | :---: | ----- | ---- | ---- |
+| $\zeta^p$ | 492  | 2,194 | 493  | 493  | 493  | 510  | 2,392 | 1,949 | 493  | 493  |
+| exposure  | 0.49 | 2.19  | 0.49 | 0.49 | 0.49 | 0.51 | 2.39  | 1.95  | 0.49 | 0.49 |
 
 Note that the average mint would be 1,000 DYAD.
 All low-$XP$ lying dNFTs have an exposure of $\approx 0.5$ while the high-$XP$ lying dNFTs have an exposure of $\approx 2.5$.
