@@ -120,7 +120,7 @@ Here, $XP$ is the actual $XP$-counter and we simplify the example by keeping the
 The norm within sync $p$ is calculated as
 
 $$
-\omega_p = 7 \times (0.5 \times 1.00) + (2.2 \times 1.00) + (2.4 \times 1.00) + (2.0 \times 1.00) = 10.2,
+\omega^p = 7 \times (0.5 \times 1.0) + (2.2 \times 1.0) + (2.4 \times 1.0) + (2.0 \times 1.0) = 10.2,
 $$
 
 and hence we calculate the contribution for dNFT(7), with an $XP$ multiplier of 2.43 and a deposit/minted multiplier of 1.00 as follows.
@@ -128,13 +128,13 @@ and hence we calculate the contribution for dNFT(7), with an $XP$ multiplier of 
 First, we calculate the product of both multipliers
 
 $$
-z = \Theta_7 \times \dfrac{\nu_7}{\kappa_7} = 2.43 \times 1.00 = 2.43,
+z_7 = \Theta_7 \times \dfrac{\nu_7}{\kappa_7} = 2.43 \times 1.00 = 2.43,
 $$
 
 and then we normalise the multiplier product
 
 $$
-\varepsilon_7^p = \dfrac{z}{\omega_p} = \dfrac{2.43}{10.2} = 0.24.
+\varepsilon_7^p = \dfrac{z}{\omega^p} = \dfrac{2.43}{10.2} = 0.24.
 $$
 
 Finally, we take the minted amount ($M$) and multiply the normalised contribution to obtain the minting allocation ($\zeta_7^p$) for dNFT(7) in sync $p$
