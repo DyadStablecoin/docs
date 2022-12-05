@@ -100,10 +100,10 @@ The shift on the $XP$ axis enables us to define when we have a one-to-one exposu
 
 ## Minting distribution
 
-In order to distribute minted DYAD to all active positions, we calculate $\Theta_j$-values for every dNFT and normalise each value by the sync-specific norm ($\omega_p$)
+In order to distribute minted DYAD to all active positions, we calculate $\Theta_j$-values for every dNFT and normalise each value by the sync-specific norm ($\omega^p$)
 
 $$
-\omega_p = \sum\limits_{j=1}^N\,\Theta_j,
+\omega^p = \sum\limits_{j=1}^N\,\Theta_j,
 $$
 
 to finally obtain the amount of DYAD that a dNFT obtains within sync $p$.
