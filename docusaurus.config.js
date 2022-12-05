@@ -16,7 +16,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/dyad-logo.jpeg",
+  favicon: "img/dyad.png",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -75,7 +75,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
-        defaultMode: "dark",
+        defaultMode: "light",
         disableSwitch: false,
         respectPrefersColorScheme: false,
       },
@@ -83,7 +83,7 @@ const config = {
         title: "DYAD",
         logo: {
           alt: "DYAD",
-          src: "img/dyad-logo.jpeg",
+          src: "img/dyad.png",
         },
         // items: [
         //   {
