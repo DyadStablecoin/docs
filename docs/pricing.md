@@ -17,7 +17,7 @@ Net Present Value is a valuation methodology which examines an asset's future ca
 The formula used in modern financial services is
 
 $$
-NPV = \sum\limits_{t=1}^N\frac{R_t}{(1+i)^t},
+NPV = \sum\limits_{t=1}^N \dfrac{R_t}{(1 + i)^t},
 $$
 
 where $R$ is defined as the cash flow at time $t$ and $i$ is defined as the discount rate (typically rate of inflation) summed over $N$ snapshots.
@@ -29,7 +29,7 @@ Now assume that a given dNFT's net upside exposure is 1.0.
 This means that for every $n\%$ change in ETH price, the dNFT will see an $n\%$ gain in its balance
 
 $$
-NPV = \sum\limits_{t=1}^N\frac{\rho^{\sigma \upsilon t}}{(1+i)^t},
+NPV = \sum\limits_{t=1}^N \dfrac{\rho^{\sigma \upsilon t}}{(1 + i)^t},
 $$
 
 where $\rho$ equalts the current DYAD Balance, $\sigma$ the ETH implied volatility, $\upsilon$ the net upside, and $t$ the time in years.
@@ -38,7 +38,7 @@ However, dNFT cash flow happens continuously as DYAD is minted and burned to ens
 Therefore, a dNFT's NPV is calculated as follows:
 
 $$
-NPV = \rho + \lim_{n\to\infty}\sum_{t=1}^{ny}\dfrac{\rho(\frac{\sigma \upsilon}{n})^{nt}}{(1+\dfrac{i}{n})^{nt}},
+NPV = \rho + \lim_{n\to\infty}\sum_{t=1}^{ny}\dfrac{\rho(\dfrac{\sigma \upsilon}{n})^{nt}}{(1+\dfrac{i}{n})^{nt}},
 $$
 
 with $\rho$ as current DYAD Balance, $\sigma$ as ETH implied volatility, $\upsilon$ as net upside, $t$ as time in years, $i$ as discount rate, and $y$ as desired NPV forecast range in years.
@@ -111,11 +111,11 @@ The base value of a dNFT should be affected by several factors:
 - Floor price, or what investors are willing to pay to enter the protocol.
 
 Now, let us consider the amount of ETH in the DYAD collateral vault as a percentage of total ETH market cap.
-We define the following properties: $C_D$ = ETH in DYAD collateral vault and $C_E$ = ETH market cap, and $\frac{C_D}{C_E}$ = $C_P$ = Percentage of DYAD ETH making up total market cap to account for DYAD total value locked.
+We define the following properties: $C_D$ = ETH in DYAD collateral vault and $C_E$ = ETH market cap, and $\dfrac{C_D}{C_E}$ = $C_P$ = Percentage of DYAD ETH making up total market cap to account for DYAD total value locked.
 Given this, the base value should be defined as
 
 $$
-B=(\alpha*C_P*\sigma+\rho)*\frac{R}{1.5},
+B=(\alpha C_P \sigma + \rho) \dfrac{R}{1.5},
 $$
 
 where $\rho$ = current DYAD balance, $\sigma$ = ETH implied volatility, $R$ = reserve ratio, or DYAD in a dNFT's balance over DYAD in circulation from the dNFT.
