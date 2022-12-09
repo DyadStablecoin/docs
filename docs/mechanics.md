@@ -9,7 +9,7 @@ Let us define the key mechanics of the protocol:
 - Minting (positive delta)
 - Burning (negative delta)
 - $XP$ accrual
-- Liquidations
+- Legend
 
 # Miniting
 
