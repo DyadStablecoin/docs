@@ -197,14 +197,30 @@ The distribution of burn allocations follows the same principle as described abo
 ## XP accrual
 
 A dNFT receives new $XP$ points with each DYAD that is burned at a negative delta to keep the peg of the stable asset intact.
-Again, we take the $XP$ position to determine the accrual in XP.
-This equation has a direct proportionality to the value of DYAD burnt ($\mu$), and is scaled by the $XP$ function.
+Again, we take the $XP$ position to determine the accrual in $XP$.
+This equation has a direct proportionality to the value of DYAD burnt ($\mu$), and is scaled by the $XP$ function
 
 $$
-XP^{accrual}_j = \dfrac{\mu_j}{\Omega_j}
+XP^{accrual}_j = \dfrac{\mu_j}{\Omega_j}.
 $$
 
 For a $\mu$-value of 1000, a low-positioned dNFT ($\Omega \approx 0.5$) thus has an $XP$ accrual of 2000, while a high-positioned dNFT ($\Omega \approx 2.5$) only has one of 400.
+
+Another strategy would be a linear decrease with respect to the $XP$ position.
+We have again a direct proportinality to $\mu$, but we include the $XP$ position to scale a one-to-one relation between DYAD burned and $XP$ accrual to almost zero for the highest $XP$ positions
+
+---
+
+<center><strong>Linear XP accrual (alternative)</strong></center>
+
+$$
+XP^{accrual}_j = \mu \times (1.0001 - XP_{scaled}).
+$$
+
+For a $\mu$-value of 1000, the lowest-positioned dNFT ($XP^{scaled} \approx 0.0$) thus has an $XP$ accrual of $\approx 1000$, while the highest-positioned dNFT ($XP^{scaled} \approx 1.0$) only has one of 0.1
+($XP^{scaled}$ $\in$ [0, 1]).
+
+---
 
 # Legend
 
