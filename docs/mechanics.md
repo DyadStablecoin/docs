@@ -14,7 +14,7 @@ Let us define the key mechanics of the protocol:
 # Miniting
 
 The creation of DYAD is defined by pre-defined minting equations whenever the
-underlying collateral (ETH, abbreviated as Ξ in the following) increases in value.
+underlying collateral (ETH) increases in value.
 The total amount of DYAD ($\Gamma$) is obtained by adding DYAD that is available in
 the damping vault ($\nu$) to DYAD that is withdrawn ($\kappa$)
 
@@ -100,10 +100,10 @@ The shift on the $XP$ axis enables us to define when we have a one-to-one exposu
 
 ## Minting distribution
 
-In order to distribute minted DYAD to all active positions, we calculate $\Theta_j$-values for every dNFT and normalise each value by the sync-specific norm ($\omega^p$)
+In order to distribute minted DYAD to all active positions, we calculate $\Theta_j$-values for every dNFT and normalise each value by the sync-specific mint norm ($\omega^p_m$)
 
 $$
-\omega^p = \sum\limits_{j=1}^N\,\Theta_j,
+\omega^p_m = \sum\limits_{j=1}^N\,\Theta_j,
 $$
 
 to finally obtain the amount of DYAD that a dNFT obtains within sync $p$.
@@ -117,10 +117,10 @@ Here, $XP$ is the actual $XP$-counter and we simplify the example by keeping the
 | $XP^{scaled}$ | 0.16  | 0.93  | 0.40  | 0.33  | 0.28  | 0.63  | 1.00  | 0.90  | 0.34  | 0.00  |
 | $\Theta$      | 0.50  | 2.23  | 0.50  | 0.50  | 0.50  | 0.52  | 2.43  | 1.98  | 0.50  | 0.50  |
 
-The norm within sync $p$ is calculated as
+The mint norm within sync $p$ is calculated as
 
 $$
-\omega^p = 7 \times (0.5 \times 1.0) + (2.2 \times 1.0) + (2.4 \times 1.0) + (2.0 \times 1.0) = 10.2,
+\omega^p_m = 7 \times (0.5 \times 1.0) + (2.2 \times 1.0) + (2.4 \times 1.0) + (2.0 \times 1.0) = 10.2,
 $$
 
 and hence we calculate the contribution for dNFT(7), with an $XP$ multiplier of 2.43 and a deposit/minted multiplier of 1.00 as follows.
@@ -134,7 +134,7 @@ $$
 and then we normalise the multiplier product
 
 $$
-\varepsilon_7^p = \dfrac{z}{\omega^p} = \dfrac{2.43}{10.2} = 0.24.
+\varepsilon_7^p = \dfrac{z}{\omega^p_m} = \dfrac{2.43}{10.2} = 0.24.
 $$
 
 Finally, we take the minted amount ($M$) and multiply the normalised contribution to obtain the minting allocation ($\zeta_7^p$) for dNFT(7) in sync $p$
@@ -152,15 +152,79 @@ The table below shows minting allocations for a delta of $+10\%$ that represents
 
 Note that the average mint would be 1,000 DYAD.
 All low-$XP$ lying dNFTs have an exposure of $\approx 0.5$ while the high-$XP$ lying dNFTs have an exposure of $\approx 2.5$.
+After describing the minting of DYAD with positive deltas against the collateral, we will subsequently discuss the burning of DYAD with negative deltas.
 
 ## Burning
 
-tba
+In the case of negative deltas against the collateral, DYAD present in the damping vault must be burned in order to maintain the peg of our stable asset.
+Once again, the properties of a dNFT play a decisive role in determining the burning allocation for each participant.
+
+Two criteria determine the respective amount that each dNFT must burn in the event of a negative delta:
+
+- Relative $XP$ position of dNFT with respect to all other dNFTs.
+- Amount of minted DYAD relative to average minted amount of DYAD.
+
+We use the $XP$ position of the dNFT as input for the inverse $XP$ function.
+This function calculates multipliers of $\approx 2.5$ for a dNFT with a low scaled $XP$ value and $\approx 0.5$ for a dNFT with a high scaled $XP$ value.
+We define the inverse $XP$ function as follows for dNFT $j$
+
+$$
+\Omega^{-1}_j = \lambda - \Omega_j,
+$$
+
+where $\lambda = max(\Omega) + min(\Omega)$ is a constant value.
+
+Furthermore, we calculate the average minted DYAD value $\Zeta$ by dividing the total amount of minted DYAD ($\Gamma$) by the number of dNFTs $N$
+
+$$
+\Zeta = \dfrac{\Gamma}{N}.
+$$
+
+Again, we calculate allocations using a distribution function consisting of the product of the inverse $XP$ and the fraction of the dNFT's minted DYAD value ($m$) relative to the average minted DYAD, which is for dNFT $j$ defined as
+
+$$
+\Epsilon_j = \Omega^{-1}_j \times \dfrac{m}{\Zeta}.
+$$
+
+We follow the same strategy as for minting and obtain a burn norm for sync $p$
+
+$$
+\omega^p_b = \sum\limits_{j=1}^N\,\Epsilon_j.
+$$
+
+The distribution of burn allocations follows the same principle as described above and hence we do not repeat the procedure for burning.
 
 ## XP accrual
 
-tba
+A dNFT receives new $XP$ points with each DYAD that is burned at a negative delta to keep the peg of the stable asset intact.
+Again, we take the $XP$ position to determine the accrual in XP.
+This equation has a direct proportionality to the value of DYAD burnt ($\mu$), and is scaled by the $XP$ function.
 
-## Liquidiations
+$$
+XP^{accrual}_j = \dfrac{\mu_j}{\Omega_j}
+$$
 
-tba
+For a $\mu$-value of 1000, a low-positioned dNFT ($\Omega \approx 0.5$) thus has an $XP$ accrual of 2000, while a high-positioned dNFT ($\Omega \approx 2.5$) only has one of 400.
+
+# Legend
+
+| Symbol        | Definition                             |
+| ------------- | -------------------------------------- |
+| $XP$          | Experience points of a dNFT            |
+| $XP_{max}$    | Maximum of experience points           |
+| $XP_{min}$    | Minimum of experience points           |
+| $XP^{scaled}$ | Min-max scaled experience points       |
+| $\Gamma$      | Total amount of minted DYAD            |
+| $\nu$         | DYAD in damping vault                  |
+| $\kappa$      | DYAD in the wild (withdrawn)           |
+| $\Theta$      | Minting distribution function          |
+| $\Omega$      | $XP$ function                          |
+| $\omega_m$    | Mint norm                              |
+| $z$           | Mint multiplier product                |
+| $\varepsilon$ | Normalised mint multiplier product     |
+| $\zeta$       | Mint allocation                        |
+| $\Omega^{-1}$ | Inverse $XP$ function                  |
+| $\lambda$     | Sum of $max(\Omega)$ and $min(\Omega)$ |
+| $\Zeta$       | Average DYAD minted                    |
+| $\Epsilon$    | Burn multiplier product                |
+| $\omega_b$    | Burn norm                              |
