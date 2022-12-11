@@ -6,12 +6,12 @@ sidebar_position: 5
 
 Let us define the key mechanics of the protocol:
 
-- Minting (positive delta)
-- Burning (negative delta)
+- Minting
+- Burning
 - $XP$ accrual
 - Legend
 
-# Miniting
+# Minting
 
 The creation of DYAD is defined by pre-defined minting equations whenever the
 underlying collateral (ETH) increases in value.
@@ -183,8 +183,21 @@ $$
 Again, we calculate allocations using a distribution function consisting of the product of the inverse $XP$ and the fraction of the dNFT's minted DYAD value ($m$) relative to the average minted DYAD, which is for dNFT $j$ defined as
 
 $$
-\Epsilon_j = \Omega^{-1}_j \times \dfrac{m_j}{\Zeta}.
+\Epsilon_j = \Omega^{-1}_j \times \delta_j.
 $$
+
+where we use the limit $\chi_j = \dfrac{5.0}{XP^{scaled}_j}$
+
+$$
+\delta_{j} =
+    \begin{cases}
+        \dfrac{m_j}{\Zeta} & \text{if}\quad  \dfrac{m_j}{\Zeta} < \chi_j,\\
+        \chi_j & \text{ otherwise.}
+    \end{cases}
+$$
+
+to define $\delta_j$.
+Note that we hence limit the burning allocations for the highest $XP$ position to $0.5 \times \dfrac{5.0}{1.0} = 2.5$, which represents a low $XP$ position that has a deposit of $\Zeta$.
 
 We follow the same strategy as for minting and obtain a burn norm for sync $p$
 
@@ -194,7 +207,7 @@ $$
 
 The distribution of burn allocations follows the same principle as described above and hence we do not repeat the procedure for burning.
 
-## XP accrual
+## $XP$ accrual
 
 A dNFT receives new $XP$ points with each DYAD that is burned at a negative delta to keep the peg of the stable asset intact.
 Again, we take the $XP$ position to determine the accrual in $XP$.
@@ -222,6 +235,8 @@ For a $\mu$-value of 1000, the lowest-positioned dNFT ($XP^{scaled} \approx 0.0$
 
 ---
 
+## $XP$ boost
+
 # Legend
 
 | Symbol        | Definition                             |
@@ -244,3 +259,5 @@ For a $\mu$-value of 1000, the lowest-positioned dNFT ($XP^{scaled} \approx 0.0$
 | $\Zeta$       | Average DYAD minted                    |
 | $\Epsilon$    | Burn multiplier product                |
 | $\omega_b$    | Burn norm                              |
+| $\chi$        | Burn limit                             |
+| $\delta$      | Burn limit multiplier                  |
