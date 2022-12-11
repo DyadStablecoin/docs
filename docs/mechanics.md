@@ -183,7 +183,7 @@ $$
 Again, we calculate allocations using a distribution function consisting of the product of the inverse $XP$ and the fraction of the dNFT's minted DYAD value ($m$) relative to the average minted DYAD, which is for dNFT $j$ defined as
 
 $$
-\Epsilon_j = \Omega^{-1}_j \times \dfrac{m}{\Zeta}.
+\Epsilon_j = \Omega^{-1}_j \times \dfrac{m_j}{\Zeta}.
 $$
 
 We follow the same strategy as for minting and obtain a burn norm for sync $p$
@@ -214,7 +214,7 @@ We have again a direct proportinality to $\mu$, but we include the $XP$ position
 <center><strong>Linear XP accrual (alternative)</strong></center>
 
 $$
-XP^{accrual}_j = \mu \times (1.0001 - XP_{scaled}).
+XP^{accrual}_j = \mu_j \times (1.0001 - XP_{scaled}).
 $$
 
 For a $\mu$-value of 1000, the lowest-positioned dNFT ($XP^{scaled} \approx 0.0$) thus has an $XP$ accrual of $\approx 1000$, while the highest-positioned dNFT ($XP^{scaled} \approx 1.0$) only has one of 0.1
