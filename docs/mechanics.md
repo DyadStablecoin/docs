@@ -224,8 +224,6 @@ As an example, let's give a dNFT that actually has an $XP$ increment of 2000.
 By invoking the sync method, this dNFT can receive an additional $XP$ boost and double its $XP$ accrual to overall 4000 points.
 This is especially interesting for dNFTs that already have a high $XP$ position and hence helps to keep a high $XP$ position.
 
-## $XP$ boost
-
 # Legend
 
 | Symbol        | Definition                             |
