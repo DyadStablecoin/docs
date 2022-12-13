@@ -9,6 +9,7 @@ Let us define the key mechanics of the protocol:
 - Minting
 - Burning
 - $XP$ accrual
+- $XP$ boost
 - Legend
 
 # Minting
@@ -186,18 +187,15 @@ $$
 \Epsilon_j = \Omega^{-1}_j \times \delta_j.
 $$
 
-where we use the limit $\chi_j = \dfrac{5.0}{XP^{scaled}_j}$
+where we use the limit $\chi = 2.0$ to define $\delta_j$
 
 $$
 \delta_{j} =
     \begin{cases}
-        \dfrac{m_j}{\Zeta} & \text{if}\quad  \dfrac{m_j}{\Zeta} < \chi_j,\\
-        \chi_j & \text{ otherwise.}
+        \dfrac{m_j}{\Zeta} & \text{if}\quad  \dfrac{m_j}{\Zeta} < \chi,\\
+        \chi & \text{ otherwise.}
     \end{cases}
 $$
-
-to define $\delta_j$.
-Note that we hence limit the burning allocations for the highest $XP$ position to $0.5 \times \dfrac{5.0}{1.0} = 2.5$, which represents a low $XP$ position that has a deposit of $\Zeta$.
 
 We follow the same strategy as for minting and obtain a burn norm for sync $p$
 
@@ -219,23 +217,12 @@ $$
 
 For a $\mu$-value of 1000, a low-positioned dNFT ($\Omega \approx 0.5$) thus has an $XP$ accrual of 2000, while a high-positioned dNFT ($\Omega \approx 2.5$) only has one of 400.
 
-Another strategy would be a linear decrease with respect to the $XP$ position.
-We have again a direct proportinality to $\mu$, but we include the $XP$ position to scale a one-to-one relation between DYAD burned and $XP$ accrual to almost zero for the highest $XP$ positions
-
----
-
-<center><strong>Linear XP accrual (alternative)</strong></center>
-
-$$
-XP^{accrual}_j = \mu_j \times (1.0001 - XP^{scaled}_j).
-$$
-
-For a $\mu$-value of 1000, the lowest-positioned dNFT ($XP^{scaled} \approx 0.0$) thus has an $XP$ accrual of $\approx 1000$, while the highest-positioned dNFT ($XP^{scaled} \approx 1.0$) only has one of 0.1
-($XP^{scaled}$ $\in$ [0, 1]).
-
----
-
 ## $XP$ boost
+
+When a dNFT triggers the Sync method, its $XP$ is incremented at the triggered Sync.
+As an example, let's give a dNFT that actually has an $XP$ increment of 2000.
+By invoking the sync method, this dNFT can receive an additional $XP$ boost and double its $XP$ accrual to overall 4000 points.
+This is especially interesting for dNFTs that already have a high $XP$ position and hence helps to keep a high $XP$ position.
 
 # Legend
 
