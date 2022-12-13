@@ -197,8 +197,6 @@ $$
     \end{cases}
 $$
 
-Note that we limit the burning allocations for the highest $XP$ position to $0.5 \times 2.0 = 1.0$.
-
 We follow the same strategy as for minting and obtain a burn norm for sync $p$
 
 $$
