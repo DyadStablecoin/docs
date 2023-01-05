@@ -9,7 +9,7 @@ Let us define the key mechanics of the protocol:
 - Minting
 - Burning
 - $XP$ accrual
-- $XP$ boost
+- Boosting
 - Legend
 
 # Minting
@@ -152,6 +152,10 @@ The table below shows minting allocations for a delta of $+10\%$ that represents
 | exposure  | 0.49 | 2.19  | 0.49 | 0.49 | 0.49 | 0.51 | 2.39  | 1.95  | 0.49 | 0.49 |
 
 Note that the average mint would be 1,000 DYAD.
+Hence, minting allocations are distributed according to the following pie chart (10,000 DYAD total)
+
+![Minting](./assets/minting.png)
+
 All low-$XP$ lying dNFTs have an exposure of $\approx 0.5$ while the high-$XP$ lying dNFTs have an exposure of $\approx 2.5$.
 After describing the minting of DYAD with positive deltas against the collateral, we will subsequently discuss the burning of DYAD with negative deltas.
 
@@ -217,12 +221,13 @@ $$
 
 For a $\mu$-value of 1000, a low-positioned dNFT ($\Omega \approx 0.5$) thus has an $XP$ accrual of 2000, while a high-positioned dNFT ($\Omega \approx 2.5$) only has one of 400.
 
-## $XP$ boost
+## Boosting
 
-When a dNFT triggers the Sync method, its $XP$ is incremented at the triggered Sync.
+When a dNFT triggers the Sync method on a negative delta, its $XP$ is incremented at the triggered Sync.
 As an example, let's give a dNFT that actually has an $XP$ increment of 2000.
 By invoking the sync method, this dNFT can receive an additional $XP$ boost and double its $XP$ accrual to overall 4000 points.
 This is especially interesting for dNFTs that already have a high $XP$ position and hence helps to keep a high $XP$ position.
+For positive deltas, calling the Sync function will increase the mint allocation of the caller dNFT by 1.15.
 
 # Legend
 
