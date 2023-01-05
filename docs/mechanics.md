@@ -146,10 +146,11 @@ $$
 
 The table below shows minting allocations for a delta of $+10\%$ that represents a wanted mint value of 10,000 DYAD:
 
-| Property  | 1    |   2   | 3    | 4    | 5    | 6    |   7   | 8     | 9    | 10   |
-| --------- | ---- | :---: | ---- | ---- | ---- | ---- | :---: | ----- | ---- | ---- |
-| $\zeta^p$ | 492  | 2,194 | 493  | 493  | 493  | 510  | 2,392 | 1,949 | 493  | 493  |
-| exposure  | 0.49 | 2.19  | 0.49 | 0.49 | 0.49 | 0.51 | 2.39  | 1.95  | 0.49 | 0.49 |
+| Property  | 1     |   2   | 3     | 4     | 5     | 6     |   7   | 8     | 9     | 10    |
+| --------- | ----- | :---: | ----- | ----- | ----- | ----- | :---: | ----- | ----- | ----- |
+| $XP$      | 2,161 | 7,588 | 3,892 | 3,350 | 3,012 | 5,496 | 8,048 | 7,333 | 3,435 | 1,079 |
+| $\zeta^p$ | 492   | 2,194 | 493   | 493   | 493   | 510   | 2,392 | 1,949 | 493   | 493   |
+| exposure  | 0.49  | 2.19  | 0.49  | 0.49  | 0.49  | 0.51  | 2.39  | 1.95  | 0.49  | 0.49  |
 
 Note that the average mint would be 1,000 DYAD.
 Hence, minting allocations are distributed according to the following pie chart (10,000 DYAD total)
