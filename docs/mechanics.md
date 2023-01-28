@@ -139,10 +139,10 @@ Again, we take the $XP$ position to determine the accrual in $XP$.
 This equation has a direct proportionality to the value of DYAD burnt ($\mu$), and is scaled by the the scaled $XP$-value
 
 $$
-\Alpha_j = \dfrac{\mu_j}{XP_{j,s} + 0.5}.
+\Alpha_j = \dfrac{\mu_j}{XP_{j,s} + 0.05}.
 $$
 
-Note that we include 0.5 in the denominator to set an accrual limit for dNFTs with very low scaled $XP$ counts.
+Note that we include 0.05 in the denominator to set an accrual limit for dNFTs with very low scaled $XP$ counts.
 
 # Legend
 
